@@ -1,11 +1,11 @@
-# Projet de fin de TP — Agent LangChain
+# Projet Agent LangChain
 
-Petit projet Python pour un agent LangChain avec outils métier, données locales et interfaces de démonstration.
+Petit projet Python pour un agent LangChain avec outils métier, données locales et interfaces de démonstration
 
 ## Prérequis
-- Python 3.11 ou supérieur
+- Python 3.11 minimum
 - Une clé API OpenAI dans `OPENAI_API_KEY`
-- Optionnel : une clé Tavily dans `TAVILY_API_KEY`
+- Optionnel: une clé Tavily dans `TAVILY_API_KEY`
 
 ## Installation
 1. Créer un environnement virtuel si besoin
@@ -16,8 +16,8 @@ pip install -r requirements.txt
 ```
 
 ## Configuration
-1. Copier le fichier `.env.example` en `.env`
-2. Ajouter au minimum :
+1. Copier le fichier .env.example en .env
+2. Ajouter au minimum:
    - `OPENAI_API_KEY`
 3. Optionnel :
    - `TAVILY_API_KEY`
@@ -30,7 +30,7 @@ Le projet utilise SQLite pour les données clients et produits
 python init_db.py
 ```
 
-Ce script crée `database.db` et remplit les tables avec les données de départ.
+Ce script crée database.db et remplit les tables avec les données de départ.
 
 ## Lancer le projet
 
@@ -54,9 +54,9 @@ uvicorn main_api:app --reload
 ```
 
 Endpoint principal :
-- `POST /api/agent/query`
+- POST /api/agent/query
 
-Exemple :
+Exemple:
 
 ```bash
 curl -X POST http://127.0.0.1:8000/api/agent/query \
@@ -66,20 +66,17 @@ curl -X POST http://127.0.0.1:8000/api/agent/query \
 ```
 
 ## Fonctionnement
-L'agent peut notamment :
+L'agent peut notamment:
 - chercher un client ou un produit dans la base SQLite
-- afficher des cours boursiers réels avec `yfinance`
+- afficher des cours boursiers réels avec yfinance
 - calculer un portefeuille d'actions
 - faire des calculs financiers
 - résumer du texte
 - répondre via l'interface Streamlit ou l'API REST
 
-## Fichiers utiles
-- `main.py` : menu CLI
-- `app.py` : interface Streamlit
-- `main_api.py` : API REST
-- `init_db.py` : création de la base SQLite
-- `agent.py` : configuration de l'agent et des outils
-
-## Remarque
-Si une clé Tavily n'est pas renseignée, la recherche web n'est pas activée.
+## Fichiers
+- main.py: menu CLI
+- app.py: interface Streamlit
+- main_api.py: API REST
+- init_db.py: création de la base SQLite
+- agent.py: configuration de l'agent et des outils
